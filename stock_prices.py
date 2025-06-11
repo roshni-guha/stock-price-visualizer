@@ -1,28 +1,33 @@
 import yfinance as yfin
-
-#Ticker symbols
-ticker_symbol1 = "AAPL"
-
-#Creating a ticker object
-ticker1 = yfin.Ticker(ticker_symbol1)
+import matplotlib.pyplot as plt
+import matplotlib.animation
+from matplotlib.animation import FuncAnimation
+import numpy as np
+import matplotlib.animation as animation
 
 #Fetching historicaal market data
-history_data = ticker1.history(period = "6mo") #data for past 5 years
+history_data = yfin.download("AAPL", start="2020-01-01", end="2025-05-01", interval="1d")
+
 print("historical data:")
 print(history_data)
 
-#Fetching basic financials
-financials = ticker1.financials
-print("\nFinancials:")
-print(financials)
+#Simple Moving Average (SMA) 20-day calculation 
+history_data['SMA'] = history_data['Close'].rolling(window=20).mean()  # 20-day Simple Moving Average
+print(history_data["SMA"].tail(100))
 
-#Fetching info about dividends and splits
-dividends = ticker1.dividends
-print("\nDividends:")
-print(dividends)
-splits = ticker1.splits
-print("\nSplits:")
-print(splits)
+APPLE = history_data['SMA']
+fig1 = plt.plot(APPLE, label='AAPL', color='blue', linewidth=2)
+plt.legend(loc='upper left')
+plt.title("20 day Simple Moving Average")
+plt.xlabel("Date")
+plt.ylabel("Price")
+plt.show()
+
+
+
+
+
+
 
 
 
