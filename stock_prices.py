@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 import matplotlib.animation
 import numpy as np
 import mplcursors
+import subprocess
+
+subprocess.Popen(["python3", "data_GUI.py"]) #Running this and GUI simultaneously
 
 #Fetching historicaal market data
 history_data_AAPL = yfin.download("AAPL", start="2020-01-01", end="2025-05-01", interval="1d")
