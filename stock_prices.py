@@ -1,7 +1,6 @@
 import yfinance as yfin
 import matplotlib.pyplot as plt
 import matplotlib.animation
-import numpy as np
 import mplcursors
 import subprocess
 
@@ -34,7 +33,7 @@ cursor = mplcursors.cursor(line, hover=False) #Cursor for interactive data point
 
 
 line2, = ax.plot(history_data_MSFT.index, MSFT, label='MSFT', color='orange', linewidth=2)  # Capture line2
-cursor2 = mplcursors.cursor(line2, hover=True)  # Cursor for interactive data point display
+cursor2 = mplcursors.cursor(line2, hover=False)  # Cursor for interactive data point display
 
 plt.legend(loc='upper left')
 plt.show()

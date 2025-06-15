@@ -14,7 +14,6 @@ root = tk.Tk()
 root.title("AAPL and MSFT Historical Data")
 root.geometry("1000x600") #Size of the window
 root.resizable(True, True)  # Allow resizing of the window
-root.configure(bg='lightblue')  # Set background color of the window
 
 # Left frame for AAPL
 frame_aapl = tk.Frame(root) #Frame for AAPL data
